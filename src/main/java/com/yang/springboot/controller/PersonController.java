@@ -82,6 +82,7 @@ public class PersonController {
         return people;
     }
 
+    //测试声明式事务的回滚机制
     @RequestMapping("/rollback")
     public Person rollback(Person person) {
         return personService.savePersonWithRollBack(person);
@@ -90,5 +91,22 @@ public class PersonController {
     @RequestMapping("/noRollBack")
     public Person noRollBack(Person person) {
         return personService.savePersonWithoutRollBack(person);
+    }
+
+    //测试spring boot的数据缓存
+    @RequestMapping("/put")
+    public Person put(Person person) {
+        return personService.save(person);
+    }
+
+    @RequestMapping("/evict")
+    public String remove(Long id) {
+        personService.remove(id);
+        return "success";
+    }
+
+    @RequestMapping("/able")
+    public Person findOne(Person person) {
+        return personService.findOne(person);
     }
 }

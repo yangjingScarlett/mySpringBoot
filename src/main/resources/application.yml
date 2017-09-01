@@ -7,9 +7,18 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update #\u8BBE\u7F6Ehibernate\u6839\u636E\u5B9E\u4F53\u7C7B\u81EA\u52A8\u7EF4\u62A4\u6570\u636E\u5E93\u8868
-    show-sql: true #\u8BBE\u7F6Ehibernate\u5728\u64CD\u4F5C\u7684\u65F6\u5019\u63A7\u5236\u53F0\u663E\u793A\u771F\u5B9E\u7684SQL\u8BED\u53E5
+      ddl-auto: update
+    show-sql: true
 
   jackson:
     serialization:
-      indent_output: true #\u8BA9\u63A7\u5236\u5668\u8F93\u51FA\u7684Json\u5B57\u7B26\u4E32\u683C\u5F0F\u66F4\u7F8E\u89C2
+      indent_output: true
+
+  thymeleaf:
+    cache: false
+
+logging:
+  level:
+    org:
+      springframwork:
+        security: info
