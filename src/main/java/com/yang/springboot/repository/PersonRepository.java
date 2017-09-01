@@ -21,6 +21,7 @@ import java.util.List;
  * 6.JPA 提供了基于准则查询的方式，即Criteria 查询。而Spring Data JPA 提供了一个Specification （规范）接口让我们可以
  * 更方便地构造准则查询， Specification 接口定义了一个to Predicate 方法用来构造查询条件。
  * 为了做到这一点，我们的接口类必需实现JpaSpecificationExecutor 接口
+ * 7.Spring Data JPA 对所有的默认方法都开启了事务支持，且查询类事务默认启用readOnly ==true 属性。
  */
 public interface PersonRepository extends JpaRepository<Person, Long>, JpaSpecificationExecutor<Person> {
 

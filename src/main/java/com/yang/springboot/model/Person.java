@@ -1,5 +1,8 @@
 package com.yang.springboot.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -10,6 +13,8 @@ import java.io.Serializable;
  * 这是因为我们是采用正向工程通过实体类生成表结构，而不是通过逆向工程从表结构生成数据库。
  * @extra []里面的注释是根据情况自己做的猜测，并不确定准确
  */
+@Getter
+@Setter
 @Entity//指明这是一个和数据库表映射的实体类,[hibernate会根据该实体类在数据库中创建相应的表，所以在data.sql文件中插入表中的属性要和该实体类中的对应]
 @NamedQuery(name = "Person.withNameAndAddressNamedQuery", query = "select p from Person p where p.name=?1 and address=?2")
 public class Person implements Serializable {

@@ -2,6 +2,7 @@ package com.yang.springboot.controller;
 
 import com.yang.springboot.model.Person;
 import com.yang.springboot.repository.PersonRepository;
+import com.yang.springboot.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +24,9 @@ public class PersonController {
     @Autowired
     private
     PersonRepository personRepository;
+
+    @Autowired
+    private PersonService personService;
 
     @RequestMapping("/save")
     public Person save(String name, String address, Integer age) {
@@ -73,8 +77,18 @@ public class PersonController {
 
     //测试PersonSpecification的准则查询方法
     @RequestMapping("/spec")
-    public List<Person> spec(){
-        List<Person> people=personRepository.findAll(personFromBeijing());
+    public List<Person> spec() {
+        List<Person> people = personRepository.findAll(personFromBeijing());
         return people;
+    }
+
+    @RequestMapping("/rollback")
+    public Person rollback(Person person) {
+        return personService.savePersonWithRollBack(person);
+    }
+
+    @RequestMapping("/noRollBack")
+    public Person noRollBack(Person person) {
+        return personService.savePersonWithoutRollBack(person);
     }
 }
