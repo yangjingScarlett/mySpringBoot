@@ -53,7 +53,7 @@ public interface PersonRepository extends JpaRepository<Person, Long>, JpaSpecif
     @Transactional
     int setName(String name);//int表示更新语句影响的行数
 
-    //这里就是为了将findByNameStartsWith方法暴露为REST资源
+    //这里就是为了将findByNameStartsWith方法暴露为REST资源,不用再手动写controller了，直接可以访问
     //路径：http://localhost:8080/persons/search/nameStartsWith?name=w
     @RestResource(path = "nameStartsWith", rel = "nameStartsWith")
     List<Person> findByNameStartsWith(@Param("name") String name);
