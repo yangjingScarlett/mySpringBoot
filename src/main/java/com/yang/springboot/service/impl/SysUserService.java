@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 /**
  * @author Yangjing
  */
-public class UserService implements UserDetailsService {//自定义需实现UserDetailsService接口
+public class SysUserService implements UserDetailsService {//自定义需实现UserDetailsService接口
 
     @Autowired
     private SysUserRepository sysUserRepository;

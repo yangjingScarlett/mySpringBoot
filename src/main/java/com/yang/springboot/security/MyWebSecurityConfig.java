@@ -1,6 +1,6 @@
 package com.yang.springboot.security;
 
-import com.yang.springboot.service.impl.UserService;
+import com.yang.springboot.service.impl.SysUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,8 +14,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public UserService userService(){
-        return new UserService();
+    public SysUserService userService(){
+        return new SysUserService();
     }
 
      @Override
