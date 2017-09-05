@@ -17,6 +17,11 @@ spring:
   thymeleaf:
     cache: false
 
+  batch:
+    job:
+      enabled: false
+
+
 logging:
   level:
     org:

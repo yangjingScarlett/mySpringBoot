@@ -62,6 +62,30 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <version>${spring-boot-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-batch</artifactId>
+            <version>${spring-boot-version}</version>
+            <!--此项目使用Oracle 驱动， Spring Batch 会自动加载hsqldb 驱动，所以我们要去除：-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hsqldb</groupId>
+                    <artifactId>hsqldb</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--添加hibernate-validator作为数据校验使用-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.3.4.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${spring-boot-version}</version>
             <scope>test</scope>
