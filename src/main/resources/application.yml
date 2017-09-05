@@ -4,6 +4,7 @@ spring:
     url: jdbc:oracle:thin:@localhost:1521:orcl
     username: scarlett
     password: Yangjing95
+    sql-script-encoding: utf-8
 
   jpa:
     hibernate:
