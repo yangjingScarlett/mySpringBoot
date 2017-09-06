@@ -1,12 +1,14 @@
 package com.yang.springboot;
 
 import com.rometools.rome.feed.synd.SyndEntry;
+import com.yang.springboot.g_customizeEndpoint.StatusEndpoint;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.endpoint.Endpoint;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -118,10 +120,16 @@ public class MySpringbootjpaApplication implements CommandLineRunner {
                 .handle(Mail.outboundAdapter("smtp.qq.com")//邮件发送的相关信息通过Spring Integration Java DSL提供的Mail的header方法来构造
                         .port(465)
                         .protocol("smtp")
-                        .credentials("2411837616@qq.com","ilfamily1314521")
+                        .credentials("2411837616@qq.com", "ilfamily1314521")
                         .javaMailProperties(p -> p.put("mail.debug", "false")), e -> e.id("smtpOut")
                 )
                 .get();
+    }
+
+    //这里是为了把自定义的端点“status”注册为一个bean
+    @Bean
+    public Endpoint<String> status() {
+        return new StatusEndpoint();
     }
 
     public static void main(String[] args) {

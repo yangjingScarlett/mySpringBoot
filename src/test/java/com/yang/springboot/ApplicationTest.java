@@ -26,6 +26,7 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MySpringbootjpaApplication.class)
 @WebAppConfiguration
+//使用＠Transactional 注解，确保每次测试后的数据将会被回滚,所以测试成功后数据库中也不会有数据添加进去
 @Transactional
 public class ApplicationTest {
 

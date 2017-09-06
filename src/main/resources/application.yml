@@ -34,3 +34,43 @@ logging:
     org:
       springframwork:
         security: info
+
+endpoints:
+  actuator:
+    enabled: true
+    sensitive: false
+  beans:
+    enabled: true
+    sensitive: false
+  health:
+    enabled: true
+    sensitive: false
+  autoconfig:
+    enabled: true
+    sensitive: false
+  mappings:
+    enabled: true
+    sensitive: false
+  dump:
+    enabled: true
+    sensitive: false
+  configprops:
+    enabled: true
+    sensitive: false
+  info:
+    enabled: true
+    sensitive: false
+  metrics:
+    enabled: true
+    sensitive: false
+  shutdown:
+    enabled: true
+  trace:
+    enabled: true
+    sensitive: false
+  status:
+    enabled: true
+    sensitive: false
+
+
+
