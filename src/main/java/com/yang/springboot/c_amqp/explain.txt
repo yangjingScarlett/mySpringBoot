@@ -1,0 +1,16 @@
+具体的实现内容在MySpringbootjpaApplication中：
+包括implements CommandLineRunner
+
+    @Autowired
+    private
+    RabbitTemplate rabbitTemplate;
+
+    @Bean
+    public Queue wiselyQueue() {
+        return new Queue("my-queue");
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        rabbitTemplate.convertAndSend("my-queue", "来自RabbitMQ的问候！");
+    }

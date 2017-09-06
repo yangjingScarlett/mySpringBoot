@@ -1,0 +1,5 @@
+<root>
+    <item name='org.springframework.integration.feed.inbound.FeedEntryMessageSource'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

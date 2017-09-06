@@ -1,0 +1,1 @@
+所有相关代码都写在MySpringbootjpaApplication类里

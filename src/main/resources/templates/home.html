@@ -34,10 +34,8 @@
 
     <p class="bg-primary" th:text="${msg.content}"></p>
 
-    <p class="bg-info" th:text="${msg.etraInfo}"></p>
-
     <!--不知道为什么，这里的判断条件一直是错误的-->
-    <div sec:authorize="hasAnyRole('','ROLE_ADMIN','ROLE_USER')">
+    <div sec:authorize="hasAnyRole('','ROLE_ADMIN')">
         <p class="bg-info" th:text="${msg.etraInfo}"></p>
     </div>
     <div sec:authorize="hasRole('ROLE_USER')">
