@@ -15,8 +15,14 @@ spring:
     serialization:
       indent_output: true
 
+  # 在Spring Boot 里,模板引擎的页面默认是开启缓存的,如果修改了页面的内容则,刷新页面是得不到修改后的页面的因此，我们关闭模板引擎的缓存，
   thymeleaf:
     cache: false
+  freemarker:
+    cache: false
+  groovy:
+    template:
+      cache: false
 
   batch:
     job:
